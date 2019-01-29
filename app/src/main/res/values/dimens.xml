@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="activity_title_height">55dp</dimen>
+    <dimen name="activity_title_textsize">25dp</dimen>
+    <dimen name="activity_content_size_medium">18dp</dimen>
+    <dimen name="splash_textsize">25dp</dimen>
+
+    <dimen name="ll_bigwindow_width">210dp</dimen>
+    <dimen name="ll_bigwindow_height">160dp</dimen>
+
+    <dimen name="tv_bigwindow_title_width">180dp</dimen>
+    <dimen name="tv_bigwindow_title_height">30dp</dimen>
+
+    <dimen name="ll_appgroup_width">180dp</dimen>
+    <dimen name="ll_appgroup_height">50dp</dimen>
+
+    <dimen name="ll_app_width">60dp</dimen>
+    <dimen name="ll_app_height">50dp</dimen>
+
+    <dimen name="iv_appicon_width">60dp</dimen>
+    <dimen name="iv_appicon_height">30dp</dimen>
+
+    <dimen name="tv_appname_width">60dp</dimen>
+    <dimen name="tv_appname_height">20dp</dimen>
+
+    <!-- 首页图标宽高 -->
+    <dimen name="iv_man_appicon_width">80dp</dimen>
+    <dimen name="iv_man_appicon_height">80dp</dimen>
+    <dimen name="iv_man_appicon_paddingtop">45dp</dimen>
+    <dimen name="tv_man_appname_paddingtop">10dp</dimen>
+    <!-- 首页gridview中条目的宽高 -->
+    <dimen name="ll_man_item_width">100dp</dimen>
+    <dimen name="ll_man_itme_height">120dp</dimen>
+    <dimen name="iv_man_item_icon_width">65dp</dimen>
+    <dimen name="ll_man_itme_icon_height">65dp</dimen>
+    <dimen name="tv_man_item_appname_width">30dp</dimen>
+    <dimen name="tv_man_itme_appname_height">30dp</dimen>
+    <!-- gridview中控件与控件之间的距离 -->
+    <dimen name="gv_man_item_horizontal_space">10dp</dimen>
+    <dimen name="gv_man_item_vertical_space">10dp</dimen>
+
+    <!-- 全局宽高值以及amrgin值 -->
+    <dimen name="app_height_short">50dp</dimen>
+    <dimen name="app_height_medium">60dp</dimen>
+    <dimen name="app_height_high">80dp</dimen>
+
+    <dimen name="app_width_narrow">50dp</dimen>
+    <dimen name="app_width_medium">60dp</dimen>
+    <dimen name="app_width_broad">80dp</dimen>
+
+    <dimen name="app_padding_narrow">20dp</dimen>
+    <dimen name="app_padding_medium">30dp</dimen>
+    <dimen name="app_padding_broad">40dp</dimen>
+    <dimen name="app_padding_very_broad">50dp</dimen>
+
+    <dimen name="app_margin_small">6dp</dimen>
+    <dimen name="app_margin_medium">10dp</dimen>
+    <dimen name="app_margin_large">14dp</dimen>
+
+    <dimen name="app_textsize_small">10dp</dimen>
+    <dimen name="app_textsize_medium">20dp</dimen>
+    <dimen name="app_textsize_big">30dp</dimen>
+
+</resources>

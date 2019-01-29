@@ -5,15 +5,50 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".ui.MainActivity">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:background="@color/app_theme_color"
+            android:paddingTop="@dimen/iv_man_appicon_paddingtop" >
+
+        <ImageView
+                android:id="@+id/iv_main_appicon"
+                android:layout_width="@dimen/iv_man_appicon_width"
+                android:layout_height="@dimen/iv_man_appicon_height"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:src="@drawable/phone" />
+
+        <TextView
+                android:id="@+id/tv_main_appname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:paddingTop="@dimen/tv_man_appname_paddingtop"
+                android:textSize="@dimen/app_textsize_big"
+                android:text="@string/app_name" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/app_padding_narrow"
+            android:paddingRight="@dimen/app_padding_narrow"
+            android:paddingTop="@dimen/app_padding_very_broad"
+            android:background="#eeeeee"
+            android:layout_weight="2" >
+
+        <GridView
+                android:id="@+id/gv_main"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:numColumns="2"
+                >
+
+        </GridView>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
