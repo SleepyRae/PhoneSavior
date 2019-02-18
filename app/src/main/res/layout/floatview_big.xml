@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/big_window_layout"
+    android:layout_width="@dimen/ll_bigwindow_width"
+    android:layout_height="@dimen/ll_bigwindow_height"
+    android:background="@drawable/floatview_shape_bg"
+    android:orientation="vertical" >
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/iv_appicon_1"
+            android:layout_width="@dimen/iv_appicon_width"
+            android:layout_height="match_parent"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/iv_appicon_2"
+            android:layout_width="@dimen/iv_appicon_width"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/iv_appicon_3"
+            android:layout_width="@dimen/iv_appicon_width"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_launcher" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/iv_appicon_4"
+            android:layout_width="@dimen/iv_appicon_width"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/iv_appicon_5"
+            android:layout_width="@dimen/iv_appicon_width"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/iv_appicon_6"
+            android:layout_width="@dimen/iv_appicon_width"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="3dp"
+            android:src="@drawable/ic_launcher" />
+    </LinearLayout>
+
+</LinearLayout>

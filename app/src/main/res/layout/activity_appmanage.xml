@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity" ><!--加了.ui-->
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/activity_title_height"
+        android:background="@color/app_theme_color"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/tv_appmanage_activity_title"
+        android:textSize="@dimen/activity_title_textsize" />
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/tv_title" >
+
+        <!-- 自定义的侧滑listview -->
+        <com.zp.quickaccess.view.ListViewCompat
+            android:id="@+id/lvc_appinfo"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#fff4f7f9"
+            android:cacheColorHint="#00000000"
+            android:divider="#dddbdb"
+            android:dividerHeight="1.0px"
+            android:drawSelectorOnTop="false"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none" />
+
+        <LinearLayout
+            android:id="@+id/ll_appinfo"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="visible" >
+
+            <ProgressBar
+                android:id="@+id/pb_load_appinfo"
+                android:layout_width="80sp"
+                android:layout_height="80sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5sp"
+                android:text="@string/tv_appmanage_activity_loading" />
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>
