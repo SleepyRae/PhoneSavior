@@ -22,11 +22,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
 
         // 设置没有标题
-       requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // 设置全屏，全屏比较丑，一般很少用
+        // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        // WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        setContentView(R.layout.activity_main);
         ActivityManager.getInstance().addActivity(this);
 
         intent = new Intent();
@@ -57,14 +61,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 LogUtil.i(TAG, "进入应用设置界面");
                 break;
             case 2: // 应用管理界面
-                /*intent.setClass(this, AppManageActivity.class);
+                intent.setClass(this, AppManageActivity.class);
                 startActivity(intent);
-                LogUtil.i(TAG, "进入应用管理界面");*/
+                LogUtil.i(TAG, "进入应用管理界面");
                 break;
             case 3: // 应用信息查看界面
-               /* intent.setClass(this, ViewAppStaticsActivity.class);
+                intent.setClass(this, ViewAppStaticsActivity.class);
                 startActivity(intent);
-                LogUtil.i(TAG, "进入应用信息查看界面");*/
+                LogUtil.i(TAG, "进入应用信息查看界面");
                 break;
         }
     }

@@ -2,13 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.inspiron.phonesavior">
 
+    <!-- 获取应用程序信息的权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 网络访问权限,用于从服务器获取更新信息 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/Theme.AppCompat.Dialog">
+
+        <!-- 系统主界面 -->
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -16,8 +24,42 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- 帮助界面 -->
         <activity android:name=".ui.HelpActivity">
         </activity>
+        <activity android:name=".ui.HelpPager" >
+        </activity>
+
+        <!-- splash界面 -->
+
+        <!-- 设置界面 -->
+        <activity android:name=".ui.SettingActivity" >
+        </activity>
+
+        <!-- 应用管理界面 -->
+        <activity android:name=".ui.AppManageActivity" >
+        </activity>
+
+        <!-- 查看应用使用情况界面 -->
+        <activity android:name=".ui.ViewAppStaticsActivity" >
+        </activity>
+
+        <!-- 关于作者界面 -->
+        <activity android:name=".ui.AboutAuthorActivity" >
+        </activity>
+        <!-- 本App信息界面，暂时显示版本号，其他信息后续 -->
+        <activity android:name=".ui.AboutAppActivity" >
+        </activity>
+
+        <!-- 监测最顶端应用Activity栈的服务 -->
+        <service android:name=".service.WatchdogService" >
+        </service>
+        <!-- 维护悬浮窗的显示和关闭的服务 -->
+        <service android:name=".service.FloatViewService" >
+        </service>
+
+
     </application>
 
 </manifest>

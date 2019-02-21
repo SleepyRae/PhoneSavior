@@ -3,8 +3,6 @@
     <string name="helpinfo">还没啥功能</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="splash_description_1">  时 光 太 瘦  </string>
-    <string name="splash_description_2">  指 缝 太 宽  </string>
     <string name="app_version">Time Mirror</string>
     <string name="unknown_app_version">版本号未知 </string>
 

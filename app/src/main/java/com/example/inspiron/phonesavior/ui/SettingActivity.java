@@ -29,11 +29,11 @@ import com.example.inspiron.phonesavior.utils.LogUtil;
 import com.example.inspiron.phonesavior.R;
 
 /**
- * 应用设置界面：主要包括开启或者关闭悬浮窗；手动设置自己的常用应用；检查更新；关于；清除历史设置(数据)
- * 
- * 注意悬浮窗是否开启的状态标识需要写入到sp中，如果只是在程序中使用临时变量保存，并不能记录用户的实际设置状态
- * 
- */
+		* 应用设置界面：主要包括开启或者关闭悬浮窗；手动设置自己的常用应用；检查更新；关于；清除历史设置(数据)
+		*
+		* 注意悬浮窗是否开启的状态标识需要写入到sp中，如果只是在程序中使用临时变量保存，并不能记录用户的实际设置状态
+		*
+		*/
 public class SettingActivity extends Activity implements OnClickListener {
 	private static final String TAG = "SettingActivity";
 	private final static int INIT_DATA_FINISHED = 200;
@@ -51,32 +51,32 @@ public class SettingActivity extends Activity implements OnClickListener {
 	// 是否开启悬浮窗的标志位，初始为false，需要从SharedPreference中读取用户的实际设置值
 	private SharedPreferences sp;
 	private ProgressDialog pd;
-	
+
 	private boolean isOpenFloatview = false;
 	private Intent mFloatViewService;
-	
+
 	Handler handler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
-			case CLEAR_CACHE_FINISHED:
-				pd.dismiss();
-				Toast.makeText(SettingActivity.this, "缓存已经清除", 0).show();
-				break;
-			case CLEAR_CACHE_CANCEL:
-				Toast.makeText(SettingActivity.this, "取消清除", 0).show();
-				break;
+				case CLEAR_CACHE_FINISHED:
+					pd.dismiss();
+					Toast.makeText(SettingActivity.this, "缓存已经清除", 0).show();
+					break;
+				case CLEAR_CACHE_CANCEL:
+					Toast.makeText(SettingActivity.this, "取消清除", 0).show();
+					break;
 				// 数据初始化完成
-			case INIT_DATA_FINISHED:
-				pd.dismiss();
-				Intent watchdogService = new Intent(SettingActivity.this, WatchdogService.class);
-				startService(watchdogService);
-				break;
+				case INIT_DATA_FINISHED:
+					pd.dismiss();
+					Intent watchdogService = new Intent(SettingActivity.this, WatchdogService.class);
+					startService(watchdogService);
+					break;
 			}
-		
+
 		};
 	};
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -84,7 +84,7 @@ public class SettingActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_setting);
 
 		initViews();
-		
+
 		boolean isFirst = AppContext.getSharedPreferences().getBoolean("isFirst", true);
 		// 开启子线程加载应用信息
 		/**
@@ -109,7 +109,7 @@ public class SettingActivity extends Activity implements OnClickListener {
 				};
 			}.start();
 		}
-		
+
 	}
 
 	private void initViews() {
@@ -124,17 +124,17 @@ public class SettingActivity extends Activity implements OnClickListener {
 		// 标题栏文本
 		tv_common_title = (TextView) findViewById(R.id.tv_common_title);
 		tv_common_title.setText(R.string.app_set_tv_title);
-		
+
 		sp = AppContext.getSharedPreferences();
 		pd = new ProgressDialog(this);
-		
+
 		ll_set_about_author.setOnClickListener(this);
 		ll_set_product_info.setOnClickListener(this);
 		ll_set_clear_cache.setOnClickListener(this);
 		ll_set_check_update.setOnClickListener(this);
 		ll_set_exit.setOnClickListener(this);
 		ll_set_floatview_status.setOnClickListener(this);
-		
+
 		// 当Activity被finish掉之后，service怎么办？最近总是在服务中抛出空指针异常
 		mFloatViewService = new Intent(getApplicationContext(), FloatViewService.class);
 		// 将Activity添加到任务栈中
@@ -159,159 +159,159 @@ public class SettingActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		// 悬浮窗的开启和关闭
-		case R.id.ll_set_floatview_status:
-			/*
-			 * 悬浮窗实现参考
-			 * http://blog.csdn.net/stevenhu_223/article/details/8504058
-			 */
-			if (isOpenFloatview) {
-				tv_set_floatview_status.setText("开启浮窗");
+			// 悬浮窗的开启和关闭
+			case R.id.ll_set_floatview_status:
+				/*
+				 * 悬浮窗实现参考
+				 * http://blog.csdn.net/stevenhu_223/article/details/8504058
+				 */
+				if (isOpenFloatview) {
+					tv_set_floatview_status.setText("开启浮窗");
 
-				isOpenFloatview = false;
-				Editor editor = sp.edit();
-				editor.putBoolean("isOpenFloatview", isOpenFloatview);
-				editor.commit();
+					isOpenFloatview = false;
+					Editor editor = sp.edit();
+					editor.putBoolean("isOpenFloatview", isOpenFloatview);
+					editor.commit();
 
-				mFloatViewService.putExtra(FloatViewService.OPERATION,FloatViewService.HIDE_FLOATWINDOW);
-				startService(mFloatViewService);
-				Toast.makeText(this, "悬浮窗已经关闭", 0).show();
-			} else {
-				tv_set_floatview_status.setText("关闭浮窗");
-				
-				isOpenFloatview = true;
-				Editor editor = sp.edit();
-				editor.putBoolean("isOpenFloatview", isOpenFloatview);
-				editor.commit();
+					mFloatViewService.putExtra(FloatViewService.OPERATION,FloatViewService.HIDE_FLOATWINDOW);
+					startService(mFloatViewService);
+					Toast.makeText(this, "悬浮窗已经关闭", 0).show();
+				} else {
+					tv_set_floatview_status.setText("关闭浮窗");
 
-				mFloatViewService.putExtra(FloatViewService.OPERATION, FloatViewService.SHOW_FLOATWINDOW);
-				startService(mFloatViewService);
-				Toast.makeText(this, "悬浮窗已经打开", 0).show();
-			}
-			break;
+					isOpenFloatview = true;
+					Editor editor = sp.edit();
+					editor.putBoolean("isOpenFloatview", isOpenFloatview);
+					editor.commit();
 
-		// 关于作者
-		case R.id.ll_set_about_author:
-			Intent intentAboutAuthor = new Intent(this,	AboutAuthorActivity.class);
-			startActivity(intentAboutAuthor);
-			LogUtil.i(TAG, "about_author : super sugar");
-			break;
+					mFloatViewService.putExtra(FloatViewService.OPERATION, FloatViewService.SHOW_FLOATWINDOW);
+					startService(mFloatViewService);
+					Toast.makeText(this, "悬浮窗已经打开", 0).show();
+				}
+				break;
 
-		// 查看产品信息
-		case R.id.ll_set_product_info:
-			Intent intentAboutApp = new Intent(this, AboutAppActivity.class);
-			startActivity(intentAboutApp);
-			LogUtil.i(TAG, "product_info : a great products");
-			break;
+			// 关于作者
+			case R.id.ll_set_about_author:
+				Intent intentAboutAuthor = new Intent(this,	AboutAuthorActivity.class);
+				startActivity(intentAboutAuthor);
+				LogUtil.i(TAG, "about_author : super sugar");
+				break;
 
-		// 清除临时缓存数据
+			// 查看产品信息
+			case R.id.ll_set_product_info:
+				Intent intentAboutApp = new Intent(this, AboutAppActivity.class);
+				startActivity(intentAboutApp);
+				LogUtil.i(TAG, "product_info : a great products");
+				break;
+
+			// 清除临时缓存数据
 			/**
 			 * 缓存数据主要是指应用使用情况的统计数据，包括所有应用统计数据，周数据，排名前三的应用信息
-			 * 
+			 *
 			 * 在清除数据之前需要弹出一个对话框和用户进行确认
 			 */
-		case R.id.ll_set_clear_cache:
-			final Message msg = new Message();
-			Builder builder1 = new Builder(this);
-			builder1.setIcon(R.drawable.ic_launcher);
-			builder1.setTitle("确定清除数据吗");
-			builder1.setMessage("此操作将会清除所有应用使用情况的统计信息");
-			builder1.setPositiveButton("确定",
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							/*
-							 *  清除数据的逻辑:清除的数据包括：数据库的统计信息和sp中的六个值
-							 *  3个数据库，所有应用数据库只清除次数，权重，时间，周数据和每日数据直接deleteAll
-							 *  六个sp数据直接全部设置为初始的0即可
-							 *  
-							 *  由于删除数据比较耗时，所以使用子线程删除
-							 */
-							pd.setMessage("正在清除数据...");
-							pd.setCancelable(false);
-							pd.show();
-							
-							new Thread(){
-								public void run() {
-									// 6个Sp的数据置为0
-									Editor editor = AppContext.getSharedPreferences().edit();
-									
-									editor.putInt("day_count", 0);
-									editor.putInt("day_time", 0);
-									editor.putInt("day_num", 0);
-									
-									editor.putInt("week_count", 0);
-									editor.putInt("week_time", 0);
-									editor.putInt("week_num", 0);
-									
-									editor.commit();
-									
-									// 清除所有应用的统计数据，仅仅是将其三个统计值置为0，并不是将数据库置空
-									List<AppUseStatics> infos = AppContext.mDBManager.findAll();
-									for(int i=0;i<infos.size();i++){
-										infos.get(i).setUseFreq(0);
-										infos.get(i).setUseTime(0);
-										infos.get(i).setWeight(0);
-									}
-									// TODO: 2016/9/15 修改数据库中的值是如何实现？？直接删除所有再添加所有的方法太低效
-									// update  表  set  字段=值 where
-									AppContext.mDBManager.deleteAll();
-									AppContext.mDBManager.addAll(infos);
-									
-									// 清除每日数据统计和每周数据统计
-									AppContext.mWeekStatisticDBManager.deleteAll();
-									AppContext.mDayStatisticDBManager.deleteAll();
-									
-									
-									// 数据清除完成，发消息更新UI
-									msg.what = CLEAR_CACHE_FINISHED;
-									handler.sendMessage(msg);
-								};
-							}.start();
-						}
-					});
-			builder1.setNegativeButton("取消",
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							msg.what = CLEAR_CACHE_CANCEL;
-							handler.sendMessage(msg);
-						}
-					});
-			builder1.create().show();
-			break;
+			case R.id.ll_set_clear_cache:
+				final Message msg = new Message();
+				AlertDialog.Builder builder1 = new Builder(this);
+				builder1.setIcon(R.drawable.ic_launcher);
+				builder1.setTitle("确定清除数据吗");
+				builder1.setMessage("此操作将会清除所有应用使用情况的统计信息");
+				builder1.setPositiveButton("确定",
+						new android.content.DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								/*
+								 *  清除数据的逻辑:清除的数据包括：数据库的统计信息和sp中的六个值
+								 *  3个数据库，所有应用数据库只清除次数，权重，时间，周数据和每日数据直接deleteAll
+								 *  六个sp数据直接全部设置为初始的0即可
+								 *
+								 *  由于删除数据比较耗时，所以使用子线程删除
+								 */
+								pd.setMessage("正在清除数据...");
+								pd.setCancelable(false);
+								pd.show();
 
-		// 检查更新点击事件，访问服务器检查新版本
-		case R.id.ll_set_check_update:
-			Toast.makeText(this, "作者决定不更新了，没有新版本啦", 0).show();
-			break;
+								new Thread(){
+									public void run() {
+										// 6个Sp的数据置为0
+										Editor editor = AppContext.getSharedPreferences().edit();
 
-		// 退出应用
+										editor.putInt("day_count", 0);
+										editor.putInt("day_time", 0);
+										editor.putInt("day_num", 0);
+
+										editor.putInt("week_count", 0);
+										editor.putInt("week_time", 0);
+										editor.putInt("week_num", 0);
+
+										editor.commit();
+
+										// 清除所有应用的统计数据，仅仅是将其三个统计值置为0，并不是将数据库置空
+										List<AppUseStatics> infos = AppContext.mDBManager.findAll();
+										for(int i=0;i<infos.size();i++){
+											infos.get(i).setUseFreq(0);
+											infos.get(i).setUseTime(0);
+											infos.get(i).setWeight(0);
+										}
+										// TODO: 2016/9/15 修改数据库中的值是如何实现？？直接删除所有再添加所有的方法太低效
+										// update  表  set  字段=值 where
+										AppContext.mDBManager.deleteAll();
+										AppContext.mDBManager.addAll(infos);
+
+										// 清除每日数据统计和每周数据统计
+										AppContext.mWeekStatisticDBManager.deleteAll();
+										AppContext.mDayStatisticDBManager.deleteAll();
+
+
+										// 数据清除完成，发消息更新UI
+										msg.what = CLEAR_CACHE_FINISHED;
+										handler.sendMessage(msg);
+									};
+								}.start();
+							}
+						});
+				builder1.setNegativeButton("取消",
+						new android.content.DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								msg.what = CLEAR_CACHE_CANCEL;
+								handler.sendMessage(msg);
+							}
+						});
+				builder1.create().show();
+				break;
+
+			// 检查更新点击事件，访问服务器检查新版本
+			case R.id.ll_set_check_update:
+				Toast.makeText(this, "作者决定不更新了，没有新版本啦", 0).show();
+				break;
+
+			// 退出应用
 			/**
 			 * 最好添加一个类似电视机关闭的属性动画
 			 */
-		case R.id.ll_set_exit:
-			Builder builder = new Builder(this);
-			builder.setIcon(R.drawable.ic_launcher);
-			builder.setTitle("确定退出吗");
-			builder.setPositiveButton("确定",
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							TVAnimation tva = new TVAnimation();
-							
-							ActivityManager.getInstance().exit();
-						}
-					});
-			builder.setNegativeButton("取消",
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							// do nothing
-						}
-					});
-			builder.create().show();
-			break;
+			case R.id.ll_set_exit:
+				AlertDialog.Builder builder = new Builder(this);
+				builder.setIcon(R.drawable.ic_launcher);
+				builder.setTitle("确定退出吗");
+				builder.setPositiveButton("确定",
+						new android.content.DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								TVAnimation tva = new TVAnimation();
+
+								ActivityManager.getInstance().exit();
+							}
+						});
+				builder.setNegativeButton("取消",
+						new android.content.DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								// do nothing
+							}
+						});
+				builder.create().show();
+				break;
 		}
 
 	}
