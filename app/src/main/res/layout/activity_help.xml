@@ -6,14 +6,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.HelpActivity">
-    <RelativeLayout
-            android:id="@+id/help_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="@dimen/activity_content_size_medium"
-            android:text="@string/helpinfo"
-            >
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
 
-    </RelativeLayout>
+        <TextView
+                android:id="@+id/help_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/activity_content_size_medium"
+                android:text="@string/helpinfo"
+                />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

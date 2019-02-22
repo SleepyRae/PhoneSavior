@@ -1,4 +1,32 @@
 <resources>
     <string name="app_name">手机拯救者</string>
     <string name="helpinfo">还没啥功能</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="app_version">Time Mirror</string>
+    <string name="unknown_app_version">版本号未知 </string>
+
+    <string name="tv_appmanage_activity_title">应用程序信息</string>
+    <string name="tv_appmanage_activity_loading">正在加载请稍后</string>
+    <string name="pd_loading">正在加载数据请稍候</string>
+    <!-- 设置界面 -->
+    <string name="app_set_tv_title">应用程序设置</string>
+    <string name="app_set_tv_togger_floatview_open">开启浮窗</string>
+    <string name="app_set_tv_togger_floatview_close">关闭浮窗</string>
+    <string name="app_set_feedback">意见反馈</string>
+    <string name="app_set_product">产品信息</string>
+    <string name="app_set_about_author">关于作者</string>
+    <string name="app_set_clear_cache">清除数据</string>
+    <string name="app_set_check_update">检查更新</string>
+    <string name="app_set_exit">退出应用</string>
+
+    <string name="app_help_tv_title">使用帮助</string>
+
+    <string name="activity_help_description">
+   \n
+        基本功能：应用管理及时间统计。应用管理提供了应用类别和使用频率使用时间等信息，时间统计主要包括最常使用的应用以及每天和每周打开应用的个数和所花费的时间\n\n
+       悬浮窗功能：自己最常使用的6个应用将会添加到悬浮窗中，分为小悬浮窗和大悬浮窗。小悬浮窗可以手动设置是否显示，大悬浮窗由小悬浮窗呼出\n\n
+   小米华为手机注意事项：这两款手机由于添加了系统优化，所以需要在应用程序保护中将本应用添加为保护，否则会导致程序不能正常运行以及时间统计不准确\n\n
+ 其他功能：统计数据可以设置一键清除，默认统计数据除了每周数据会一周清除一次，每日数据会一天清除一次，其他数据默认是不会自动清除的。如果想要将之前的统计数据全部清除，可以在设置界面点击"清除数据"\n\n
+	</string>
 </resources>

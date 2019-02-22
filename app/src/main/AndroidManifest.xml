@@ -20,6 +20,17 @@
         </activity>
         <activity android:name=".ui.SettingActivity">
         </activity>
+
+        <service
+                android:name=".service.FloatViewService"
+                android:enabled="true"
+                android:exported="true">
+        </service>
+        <service
+                android:name=".service.WatchdogService"
+                android:enabled="true"
+                android:exported="true">
+        </service>
     </application>
 
 </manifest>
