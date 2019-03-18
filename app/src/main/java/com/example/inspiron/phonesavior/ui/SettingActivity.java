@@ -1,8 +1,5 @@
 package com.example.inspiron.phonesavior.ui;
 
-import java.util.Collections;
-import java.util.List;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -15,18 +12,19 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.example.inspiron.phonesavior.R;
 import com.example.inspiron.phonesavior.animation.TVAnimation;
 import com.example.inspiron.phonesavior.domain.AppUseStatics;
 import com.example.inspiron.phonesavior.service.FloatViewService;
 import com.example.inspiron.phonesavior.service.WatchdogService;
-import com.example.inspiron.phonesavior.utils.LogUtil;
-import com.example.inspiron.phonesavior.R;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * 应用设置界面：主要包括开启或者关闭悬浮窗；手动设置自己的常用应用；检查更新；关于；清除历史设置(数据)

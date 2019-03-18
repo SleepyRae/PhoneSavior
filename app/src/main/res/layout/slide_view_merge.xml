@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/view_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <!-- 顶层的自定义的view条目， -->
+    <LinearLayout
+        android:id="@+id/holder"
+        android:clickable="true"
+        android:layout_width="100dp"
+        android:layout_height="@dimen/app_height_short"
+        android:orientation="horizontal" >
+
+        <!-- 底层的开启和删除 tv，当顶层自定义条目滑动之后就会显示底层的两个textview -->
+        <TextView
+            android:id="@+id/tv_merge_start"
+            android:layout_width="@dimen/app_height_short"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/app_theme_color"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="开启"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_merge_delete"
+            android:layout_width="@dimen/app_height_short"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/red"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="卸载"
+            android:textColor="@color/floralwhite" />
+    </LinearLayout>
+
+</merge>
