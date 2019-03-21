@@ -120,13 +120,13 @@ public class BarChartActivity extends DemoBase implements SeekBar.OnSeekBarChang
             Button buttonbar = (Button)findViewById(R.id.BarButton2);
             Button buttonlist = (Button)findViewById(R.id.ListButton2);
 
-            buttonday.setTextColor(Color.WHITE);
-            buttonmonth.setTextColor(Color.WHITE);
-            buttonweek.setTextColor(Color.WHITE);
-            buttonyear.setTextColor(Color.WHITE);
-            buttonbar.setTextColor(Color.WHITE);
-            buttonpie.setTextColor(Color.WHITE);
-            buttonlist.setTextColor(Color.WHITE);
+            buttonday.setTextColor(Color.GRAY);
+            buttonmonth.setTextColor(Color.GRAY);
+            buttonweek.setTextColor(Color.GRAY);
+            buttonyear.setTextColor(Color.GRAY);
+            buttonbar.setTextColor(Color.GRAY);
+            buttonpie.setTextColor(Color.GRAY);
+            buttonlist.setTextColor(Color.GRAY);
 
             switch (style) {
                 case StatisticsInfo.DAY:
