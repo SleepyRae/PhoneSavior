@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical" >
 
     <LinearLayout
             android:layout_width="fill_parent"
@@ -22,14 +20,13 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:src="@drawable/phone" />
 
-        <TextView
+        <ImageView
                 android:id="@+id/tv_main_appname"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" 
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:paddingTop="@dimen/tv_man_appname_paddingtop"
-                android:textSize="@dimen/app_textsize_big"
-                android:text="@string/app_name" />
+                android:src="@drawable/ic_phonesavior" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,16 +36,18 @@
             android:paddingRight="@dimen/app_padding_narrow"
             android:paddingTop="@dimen/app_padding_very_broad"
             android:background="#eeeeee"
-            android:layout_weight="2" >
+            android:layout_weight="2"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp">
 
         <GridView
                 android:id="@+id/gv_main"
                 android:layout_width="fill_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:numColumns="2"
                 >
 
         </GridView>
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

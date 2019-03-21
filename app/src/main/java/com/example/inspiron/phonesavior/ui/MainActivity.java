@@ -9,7 +9,6 @@ import android.widget.GridView;
 
 import com.example.inspiron.phonesavior.R;
 import com.example.inspiron.phonesavior.adapter.MainUIAdapter;
-import com.example.inspiron.phonesavior.utils.LogUtil;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -46,14 +45,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
             case 0: // 使用帮助界面
-                intent.setClass(this, HelpActivity.class);
+                /*intent.setClass(this, HelpActivity.class);
                 startActivity(intent);
-                LogUtil.i(TAG, "进入使用帮助界面");
+                LogUtil.i(TAG, "进入使用帮助界面");*/
                 break;
             case 1: // 应用设置界面
-                intent.setClass(this, SettingActivity.class);
+               /* intent.setClass(this, SettingActivity.class);
                 startActivity(intent);
-                LogUtil.i(TAG, "进入应用设置界面");
+                LogUtil.i(TAG, "进入应用设置界面");*/
                 break;
             case 2: // 应用管理界面
                 /*intent.setClass(this, AppManageActivity.class);
