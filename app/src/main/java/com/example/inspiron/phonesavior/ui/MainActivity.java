@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+
 import com.example.inspiron.phonesavior.R;
 import com.example.inspiron.phonesavior.adapter.MainUIAdapter;
 
@@ -59,9 +60,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 LogUtil.i(TAG, "进入应用管理界面");*/
                 break;
             case 3: // 应用信息查看界面
-               /* intent.setClass(this, ViewAppStaticsActivity.class);
+                intent.setClass(this, AppStaticsActivity.class);
                 startActivity(intent);
-                LogUtil.i(TAG, "进入应用信息查看界面");*/
                 break;
         }
     }
