@@ -301,5 +301,7 @@
     <color name="navy">#000080</color>
     <!-- 海军色 -->
     <color name="black">#000000</color>
+
+    <color name="black_overlay">#66000000</color>
     <!-- 黑色 -->
 </resources>

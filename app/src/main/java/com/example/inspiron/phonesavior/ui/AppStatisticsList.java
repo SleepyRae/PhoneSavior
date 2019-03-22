@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import com.example.inspiron.phonesavior.Chart.DemoBase;
 import com.example.inspiron.phonesavior.R;
 import com.example.inspiron.phonesavior.Statistics.AppInformation;
 import com.example.inspiron.phonesavior.Statistics.StatisticsInfo;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AppStatisticsList extends AppCompatActivity {
+public class AppStatisticsList extends DemoBase {
     private int style;
     private long totalTime;
     private int totalTimes;

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">手机拯救者</string>
     <string name="action_settings">设置</string>
+
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="helpinfo">啊 没有帮助</string>
 </resources>

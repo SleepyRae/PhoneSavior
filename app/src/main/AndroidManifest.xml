@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.example.inspiron.phonesavior">
 
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission
+            android:name="android.permission.PACKAGE_USAGE_STATS"
+            tools:ignore="ProtectedPermissions"/>
 
     <application
             android:allowBackup="true"
@@ -25,6 +28,10 @@
         <activity android:name=".ui.BarChartActivity">
         </activity>
         <activity android:name=".ui.PiePolylineChartActivity">
+        </activity>
+        <activity
+                android:name=".ui.HelpActivity"
+                android:label="@string/title_activity_help">
         </activity>
     </application>
 

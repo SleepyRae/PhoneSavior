@@ -3,7 +3,6 @@ package com.example.inspiron.phonesavior.ui;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.format.DateUtils;
@@ -50,7 +49,7 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
         buttonday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(style != StatisticsInfo.DAY) {
+                if (style != StatisticsInfo.DAY) {
                     style = StatisticsInfo.DAY;
                     onResume();
                 }
@@ -60,7 +59,7 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
         buttonweek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(style != StatisticsInfo.WEEK) {
+                if (style != StatisticsInfo.WEEK) {
                     style = StatisticsInfo.WEEK;
                     onResume();
                 }
@@ -70,7 +69,7 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
         buttonmonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(style != StatisticsInfo.MONTH) {
+                if (style != StatisticsInfo.MONTH) {
                     style = StatisticsInfo.MONTH;
                     onResume();
                 }
@@ -80,7 +79,7 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
         buttonyear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(style != StatisticsInfo.YEAR) {
+                if (style != StatisticsInfo.YEAR) {
                     style = StatisticsInfo.YEAR;
                     onResume();
                 }
@@ -91,7 +90,7 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
         buttonlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PiePolylineChartActivity.this,AppStatisticsList.class);
+                Intent intent = new Intent(PiePolylineChartActivity.this, AppStatisticsList.class);
                 startActivity(intent);
                 finish();
             }
@@ -101,7 +100,7 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
         buttonbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PiePolylineChartActivity.this,BarChartActivity.class);
+                Intent intent = new Intent(PiePolylineChartActivity.this, BarChartActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -113,9 +112,9 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
         Button buttonmonth = (Button) findViewById(R.id.monthbuttonchart1);
         Button buttonyear = (Button) findViewById(R.id.yearbuttonchart1);
         Button buttonweek = (Button) findViewById(R.id.weekbuttonchart1);
-        Button buttonpie = (Button)findViewById(R.id.PieButton1);
-        Button buttonbar = (Button)findViewById(R.id.BarButton1);
-        Button buttonlist = (Button)findViewById(R.id.ListButton1);
+        Button buttonpie = (Button) findViewById(R.id.PieButton1);
+        Button buttonbar = (Button) findViewById(R.id.BarButton1);
+        Button buttonlist = (Button) findViewById(R.id.ListButton1);
 
         buttonday.setTextColor(Color.GRAY);
         buttonmonth.setTextColor(Color.GRAY);
@@ -141,13 +140,11 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
         }
 
         String classname = this.getClass().getName();
-        if(classname.contains("BarChartActivity")) {
+        if (classname.contains("BarChartActivity")) {
             buttonbar.setTextColor(Color.YELLOW);
-        }
-        else if(classname.contains("AppStatisticsList")) {
+        } else if (classname.contains("AppStatisticsList")) {
             buttonlist.setTextColor(Color.YELLOW);
-        }
-        else if(classname.contains("PiePolylineChartActivity")) {
+        } else if (classname.contains("PiePolylineChartActivity")) {
             buttonpie.setTextColor(Color.YELLOW);
         }
     }
@@ -276,11 +273,11 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
 
 
     private void setData(int style) {
-        StatisticsInfo statisticsInfo = new StatisticsInfo(this,style);
+        StatisticsInfo statisticsInfo = new StatisticsInfo(this, style);
         ArrayList<AppInformation> ShowList = statisticsInfo.getShowList();
 
         totaltime = statisticsInfo.getTotalTime();
-        TextView textView =(TextView) findViewById(R.id.textViewchart);
+        TextView textView = (TextView) findViewById(R.id.textViewchart);
 
         SpannableString sp = new SpannableString("已使用总时间: " + DateUtils.formatElapsedTime(totaltime / 1000));
         sp.setSpan(new RelativeSizeSpan(1.35f), 0, sp.length(), 0);
@@ -292,25 +289,24 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
         // NOTE: The order of the entries when being added to the entries array determines their position around the center of
         // the chart.
 
-        if(ShowList.size() < 6) {
+        if (ShowList.size() < 6) {
             for (int i = 0; i < ShowList.size(); i++) {
-                float apptime = (float)ShowList.get(i).getUsedTimebyDay() / 1000;
-                if(apptime / totaltime * 1000 >= 0.001)
+                float apptime = (float) ShowList.get(i).getUsedTimebyDay() / 1000;
+                if (apptime / totaltime * 1000 >= 0.001)
                     entries.add(new PieEntry(apptime, ShowList.get(i).getLabel()));
             }
-        }
-        else {
-            for(int i = 0;i < 6;i++) {
-                float apptime = (float)ShowList.get(i).getUsedTimebyDay() / 1000;
-                if(apptime / totaltime * 1000 >= 0.001)
+        } else {
+            for (int i = 0; i < 6; i++) {
+                float apptime = (float) ShowList.get(i).getUsedTimebyDay() / 1000;
+                if (apptime / totaltime * 1000 >= 0.001)
                     entries.add(new PieEntry(apptime, ShowList.get(i).getLabel()));
             }
             long otherTime = 0;
-            for(int i=6;i<ShowList.size();i++) {
+            for (int i = 6; i < ShowList.size(); i++) {
                 otherTime += ShowList.get(i).getUsedTimebyDay() / 1000;
             }
-            if(1.0 * otherTime / totaltime * 1000 >= 0.001)
-                entries.add(new PieEntry((float)otherTime, "其他应用"));
+            if (1.0 * otherTime / totaltime * 1000 >= 0.001)
+                entries.add(new PieEntry((float) otherTime, "其他应用"));
         }
 
         PieDataSet dataSet = new PieDataSet(entries, "Election Results");
@@ -365,12 +361,11 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
 
         String s1 = "应用数据统计";
         String s2;
-        if(style == StatisticsInfo.WEEK) {
+        if (style == StatisticsInfo.WEEK) {
             s2 = "一周内应用使用情况";
-        }
-        else if(style == StatisticsInfo.MONTH)
+        } else if (style == StatisticsInfo.MONTH)
             s2 = "30天应用使用情况";
-        else if(style == StatisticsInfo.YEAR)
+        else if (style == StatisticsInfo.YEAR)
             s2 = "一年应用使用情况";
         else s2 = "当天应用使用情况";
 
