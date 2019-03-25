@@ -33,6 +33,8 @@
                 android:name=".ui.HelpActivity"
                 android:label="@string/title_activity_help">
         </activity>
+        <activity android:name=".ui.FaceDetectActivity">
+        </activity>
     </application>
 
 </manifest>

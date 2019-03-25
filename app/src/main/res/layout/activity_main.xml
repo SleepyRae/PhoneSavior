@@ -5,29 +5,34 @@
               android:layout_height="match_parent"
               android:orientation="vertical" >
 
-    <LinearLayout
+    <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:orientation="vertical"
             android:background="@color/app_theme_color"
-            android:paddingTop="@dimen/iv_man_appicon_paddingtop" >
+            android:paddingTop="@dimen/iv_man_appicon_paddingtop">
 
         <ImageView
                 android:id="@+id/iv_main_appicon"
-                android:layout_width="@dimen/iv_man_appicon_width"
-                android:layout_height="@dimen/iv_man_appicon_height"
+                android:layout_width="113dp"
+                android:layout_height="151dp"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:src="@drawable/phone" />
+                android:src="@drawable/phone"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                />
 
         <ImageView
                 android:id="@+id/tv_main_appname"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:paddingTop="@dimen/tv_man_appname_paddingtop"
-                android:src="@drawable/ic_phonesavior" />
-    </LinearLayout>
+                android:src="@drawable/ic_phonesavior"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
 
     <LinearLayout
             android:layout_width="fill_parent"

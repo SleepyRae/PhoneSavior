@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.FaceDetectActivity">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/face_detect"
+            android:textColor="@color/darkgreen"
+            android:textSize="@dimen/app_textsize_big"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="187dp"/>
+
+    <Switch
+            android:id="@+id/s_v"
+            android:showText="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:switchMinWidth="20dp"
+            android:textOn="@string/on"
+            android:textOff="@string/off"
+            android:thumb="@drawable/thumb"
+            android:track="@drawable/track"
+            android:layout_centerInParent="true"/>
+
+</RelativeLayout>

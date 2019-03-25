@@ -50,14 +50,12 @@ public class MainActivity extends DemoBase implements AdapterView.OnItemClickLis
                 startActivity(intent);
                 break;
             case 1: // 应用设置界面
-               /* intent.setClass(this, SettingActivity.class);
-                startActivity(intent);
-                LogUtil.i(TAG, "进入应用设置界面");*/
+/*                intent.setClass(this, SettingActivity.class);
+                startActivity(intent);*/
                 break;
-            case 2: // 应用管理界面
-                /*intent.setClass(this, AppManageActivity.class);
+            case 2: // 人脸检测界面
+                intent.setClass(this, FaceDetectActivity.class);
                 startActivity(intent);
-                LogUtil.i(TAG, "进入应用管理界面");*/
                 break;
             case 3: // 应用信息查看界面
                 intent.setClass(this, AppStaticsActivity.class);
