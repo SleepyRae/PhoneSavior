@@ -10,8 +10,6 @@ import com.example.inspiron.phonesavior.R;
 
 public class FaceDetectActivity extends AppCompatActivity {
 
-    private Intent intent;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +26,8 @@ public class FaceDetectActivity extends AppCompatActivity {
                 //控制开关字体颜色
                 if (f) {
                     aSwitch.setSwitchTextAppearance(FaceDetectActivity.this, R.style.s_true);
-                    /*intent = FaceDetectActivity.this.intent.setClass(this, CameraActivity.class);
-                    startActivity(CameraActivity.this.intent);*/
+                    Intent intent = new Intent(FaceDetectActivity.this, CameraActivity.class);
+                    startActivity(intent);
                     Toast.makeText(getApplicationContext(), "开启人脸检测惹", Toast.LENGTH_SHORT).show();
                 } else {
                     aSwitch.setSwitchTextAppearance(FaceDetectActivity.this, R.style.s_false);

@@ -3,7 +3,20 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.inspiron.phonesavior">
 
-    <uses-permission
+    <uses-sdk
+            android:minSdkVersion="21"
+            android:targetSdkVersion="28">
+    </uses-sdk>
+
+    <!-- 调用相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!-- 读写SD卡权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+        <uses-permission
             android:name="android.permission.PACKAGE_USAGE_STATS"
             tools:ignore="ProtectedPermissions"/>
 
@@ -34,6 +47,9 @@
                 android:label="@string/title_activity_help">
         </activity>
         <activity android:name=".ui.FaceDetectActivity">
+        </activity>
+        <activity android:name=".ui.CameraActivity"
+                  android:theme="@android:style/Theme.Translucent">
         </activity>
     </application>
 
