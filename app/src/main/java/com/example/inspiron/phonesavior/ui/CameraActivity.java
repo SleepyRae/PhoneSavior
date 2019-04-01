@@ -235,18 +235,18 @@ public class CameraActivity extends Activity {
                 Toast.makeText(CameraActivity.this, "拍照失败", Toast.LENGTH_SHORT).show();;
                 Log.d("Demo", "保存照片失败" + error.toString());
                 error.printStackTrace();
-                //myCamera.stopPreview();
+               // myCamera.stopPreview();
                 //myCamera.release();
                 myCamera.startPreview();
-                myCamera = null;
+                //myCamera = null;
             }
 
             Log.d("Demo", "获取照片成功");
             Toast.makeText(CameraActivity.this, "获取照片成功", Toast.LENGTH_SHORT).show();;
-            //myCamera.stopPreview();
+          //  myCamera.stopPreview();
             //myCamera.release();
             myCamera.startPreview();
-            myCamera = null;
+            //myCamera = null;
         }
     };
 
