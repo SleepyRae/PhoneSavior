@@ -31,6 +31,7 @@ public class FaceDetectActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "开启人脸检测惹", Toast.LENGTH_SHORT).show();
                 } else {
                     aSwitch.setSwitchTextAppearance(FaceDetectActivity.this, R.style.s_false);
+                    CameraActivity.finishActivity();
                     Toast.makeText(getApplicationContext(), "关掉人脸检测惹", Toast.LENGTH_SHORT).show();
                 }
 

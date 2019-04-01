@@ -23,6 +23,7 @@ import com.example.inspiron.phonesavior.R;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,6 +34,8 @@ public class CameraActivity extends Activity {
     private Camera myCamera;
     private List<Integer> mWaitAction = new LinkedList<>(); //暂存拍照的队列
     private boolean isTaking = false;   //是否处于拍照中
+    private int num = 0;
+    public static WeakReference<CameraActivity> weak = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,14 +63,18 @@ public class CameraActivity extends Activity {
                 //初始化camera并对焦拍照
                 //initCamera();
                 boolean result = false;
+
                 while(!result) {
                     try {
-                        Thread.sleep(5 * 1000); //设置暂停的时间 5 秒
+                        num++;
+                        Log.d("Demo", "第"+ num +"次开始拍照" );
                         initCamera();
+                        Thread.sleep(5 * 1000); //设置暂停的时间 5 秒
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
+                CameraActivity.this.finish();
             }
         }).start();
 
@@ -120,21 +127,6 @@ public class CameraActivity extends Activity {
         myCamera.autoFocus(myAutoFocus);
 
         //对焦后拍照
-        myCamera.takePicture(null, null, myPicCallback);
-    }
-
-    //拍照
-    public void takePicture() {   //对外暴露的方法，连续拍照时调用
-        if (isTaking) {   //判断是否处于拍照，如果正在拍照，则将请求放入缓存队列
-            mWaitAction.add(1);
-        }
-        else {
-            doTakeAction();
-        }
-    }
-
-    private void doTakeAction() {   //拍照方法
-        isTaking = true;
         myCamera.takePicture(null, null, myPicCallback);
     }
 
@@ -192,7 +184,7 @@ public class CameraActivity extends Activity {
             myCamera.release();
             myCamera = null;
         }
-
+        myCamera.stopPreview();
         myCamera.startPreview();
 
         return true;
@@ -210,12 +202,7 @@ public class CameraActivity extends Activity {
 
         @Override
         public void onPictureTaken(byte[] data, Camera camera) {
-            if (mWaitAction.size() > 0) {
-                mWaitAction.remove(0);   //移除队列中的第一条拍照请求，并执行拍照请求
-                mHandler.sendEmptyMessage(0);  //主线程中调用拍照
-            } else {  //队列中没有拍照请求，走正常流程
-                isTaking = false;
-            }
+
             //完成拍照后关闭Activity
             //CameraActivity.this.finish();
 
@@ -226,7 +213,7 @@ public class CameraActivity extends Activity {
             bitmap = Bitmap.createBitmap(bitmap ,0,0, bitmap .getWidth(), bitmap .getHeight(),matrix,true);
 
             //创建并保存图片文件
-            File pictureFile = new File(getDir(), "camera.jpg");
+            File pictureFile = new File(getDir(), "camera"+num+".jpg");
             try {
                 FileOutputStream fos = new FileOutputStream(pictureFile);
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
@@ -250,12 +237,12 @@ public class CameraActivity extends Activity {
         }
     };
 
-    Handler mHandler = new Handler() {
+/*    Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             doTakeAction();
         }
-    };
+    };*/
 
     //获取文件夹
     private File getDir()
@@ -269,6 +256,15 @@ public class CameraActivity extends Activity {
         else {
             dir.mkdirs();
             return dir;
+        }
+    }
+
+    /**
+     * 在别的Activity关闭自己的方法
+     */
+    public static void finishActivity() {
+        if (weak!= null && weak.get() != null) {
+            weak.get().finish();
         }
     }
 }
