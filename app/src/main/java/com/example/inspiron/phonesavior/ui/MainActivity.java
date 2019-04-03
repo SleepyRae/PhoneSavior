@@ -49,17 +49,17 @@ public class MainActivity extends DemoBase implements AdapterView.OnItemClickLis
                 intent.setClass(this, HelpActivity.class);
                 startActivity(intent);
                 break;
-            case 1: // 应用设置界面
-/*                intent.setClass(this, SettingActivity.class);
-                startActivity(intent);*/
+            case 1: // 应用管理界面
+                Intent intent1 = new Intent(MainActivity.this, AppManageActivity.class);
+                startActivity(intent1);
                 break;
             case 2: // 人脸检测界面
-                intent.setClass(this, FaceDetectActivity.class);
-                startActivity(intent);
+                Intent intent2 = new Intent(MainActivity.this, FaceDetectActivity.class);
+                startActivity(intent2);
                 break;
             case 3: // 应用信息查看界面
-                intent.setClass(this, AppStaticsActivity.class);
-                startActivity(intent);
+                Intent intent3 = new Intent(MainActivity.this, AppStaticsActivity.class);
+                startActivity(intent3);
                 break;
         }
     }

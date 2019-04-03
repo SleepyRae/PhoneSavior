@@ -9,16 +9,18 @@
     </uses-sdk>
 
     <!-- 调用相机权限 -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
 
     <!-- 读写SD卡权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-        <uses-permission
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission
             android:name="android.permission.PACKAGE_USAGE_STATS"
             tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
             android:allowBackup="true"
@@ -48,8 +50,13 @@
         </activity>
         <activity android:name=".ui.FaceDetectActivity">
         </activity>
-        <activity android:name=".ui.CameraActivity"
-                  android:theme="@android:style/Theme.Translucent">
+        <activity
+                android:name=".ui.CameraActivity"
+                android:theme="@android:style/Theme.Translucent">
+        </activity>
+        <activity android:name=".ui.AppManageActivity">
+        </activity>
+        <activity android:name=".ui.IO">
         </activity>
     </application>
 
