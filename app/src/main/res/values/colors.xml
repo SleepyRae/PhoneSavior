@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="button_selected">#ff419de4</color>
     <color name="shape_line">#ffcccccc</color>
     <color name="quit_default_red">#F35336</color>
     <color name="quit_pressed_red">#C32136</color>
-    <color name="app_theme_color">#009688</color>
+    <color name="app_theme_color">#87c5e8	</color>
     <!-- 应用的主题色 -->
     <color name="white">#FFFFFF</color>
     <!-- 白色 -->

@@ -3,7 +3,8 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical" >
+              android:orientation="vertical"
+              android:background="@color/app_theme_color">
 
     <RelativeLayout
             android:layout_width="fill_parent"
@@ -15,23 +16,23 @@
 
         <ImageView
                 android:id="@+id/iv_main_appicon"
-                android:layout_width="113dp"
-                android:layout_height="151dp"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:src="@drawable/phone"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:paddingBottom="20dp"
+                android:src="@drawable/ic_smartphone"
                 android:layout_centerHorizontal="true"
-                android:layout_alignParentTop="true"
-                />
+                android:layout_centerVertical="true"
+                android:layout_alignParentTop="true"/>
 
         <ImageView
                 android:id="@+id/tv_main_appname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:paddingTop="@dimen/tv_man_appname_paddingtop"
+                android:paddingTop="20dp"
                 android:src="@drawable/ic_phonesavior"
                 android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"/>
+                android:layout_alignParentBottom="true" android:layout_marginBottom="0dp"/>
     </RelativeLayout>
 
     <LinearLayout
@@ -48,9 +49,11 @@
         <GridView
                 android:id="@+id/gv_main"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
+                android:verticalSpacing="10dp"
+                android:columnWidth="45dp"
                 android:numColumns="2"
-                >
+        >
 
         </GridView>
     </LinearLayout>

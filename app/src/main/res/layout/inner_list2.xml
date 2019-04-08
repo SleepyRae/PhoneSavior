@@ -6,26 +6,27 @@
 
 
     <ImageView android:id="@+id/icon"
-        android:layout_width="175px"
-        android:layout_height="175px"
-        android:layout_margin="5px"/>
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="15px"/>
 
     <LinearLayout android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="15px">
 
         <TextView android:id="@+id/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5px"
             android:textStyle="bold"
-            android:textSize="50px"/>
+            android:textSize="43px"/>
 
         <TextView android:id="@+id/setTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5px"
-            android:textSize="45px" />
+            android:textSize="35px"/>
 
     </LinearLayout>
 
