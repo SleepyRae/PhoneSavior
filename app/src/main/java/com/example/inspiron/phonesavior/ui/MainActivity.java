@@ -1,15 +1,30 @@
 package com.example.inspiron.phonesavior.ui;
 
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.PowerManager;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import android.widget.Toast;
 import com.example.inspiron.phonesavior.Chart.DemoBase;
 import com.example.inspiron.phonesavior.R;
+import com.example.inspiron.phonesavior.Service.AppLimitService;
+import com.example.inspiron.phonesavior.Statistics.AppInformation;
+import com.example.inspiron.phonesavior.Statistics.StatisticsInfo;
 import com.example.inspiron.phonesavior.adapter.MainUIAdapter;
+
+import java.io.*;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 public class MainActivity extends DemoBase implements AdapterView.OnItemClickListener {
 
@@ -17,6 +32,10 @@ public class MainActivity extends DemoBase implements AdapterView.OnItemClickLis
     private GridView gv;
     private MainUIAdapter adapter;
     private Intent intent;
+
+/*    private ArrayList<AppInformation> ShowList;
+//    long YLength;
+//    int cellHeight;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +54,7 @@ public class MainActivity extends DemoBase implements AdapterView.OnItemClickLis
         gv.setAdapter(adapter);
 
         gv.setOnItemClickListener(this);
+
     }
 
     /**
@@ -62,5 +82,12 @@ public class MainActivity extends DemoBase implements AdapterView.OnItemClickLis
                 startActivity(intent3);
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+
+        Log.d("MainActivity", "onResume");
+        super.onResume();
     }
 }
