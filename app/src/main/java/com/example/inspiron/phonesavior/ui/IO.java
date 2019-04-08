@@ -70,7 +70,7 @@ public class IO extends AppCompatActivity implements View.OnClickListener {
                 if(time.equals(""))
                     i = 0;
                 else i=Integer.parseInt(time);
-                i=i*60;
+                    i=i*60;
                 time=String.valueOf(i);
                 try {
                     writeFileData("TEST.txt",name,type,time);

@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -38,6 +39,9 @@ public class AppManageActivity extends AppCompatActivity implements AdapterView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_manage);
         this.style = StatisticsInfo.DAY;
+
+        Log.d("AppManageActivity", "onCreate");
+
     }
     //每次重新进入界面的时候加载listView
     @SuppressLint("SetTextI18n")
@@ -45,6 +49,7 @@ public class AppManageActivity extends AppCompatActivity implements AdapterView.
     protected void onResume() {
         super.onResume();
 
+        Log.d("AppManageActivity", "onResume");
 
         List<Map<String,Object>> datalist = null;
 
