@@ -10,6 +10,7 @@
     <string name="off">off</string>
     <string name="face_detect">人脸检测</string>
     <string name="title_activity_setting">设置</string>
+    <string name="app_list_title">应用使用情况</string>
 
     <!-- Strings related to Settings -->
 

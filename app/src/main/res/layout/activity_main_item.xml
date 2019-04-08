@@ -1,24 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".adapter.MainUIAdapter">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="@dimen/ll_man_item_width"
+              android:layout_height="150dp"
+              android:background="@drawable/main_item_background"
+              android:paddingTop="5dp"
+              android:paddingBottom="5dp"
+              android:gravity="center_vertical"
+              android:orientation="vertical" >
 
     <ImageView
             android:id="@+id/iv_main_item_icon"
-            android:layout_width="@dimen/iv_man_item_icon_width"
-            android:layout_height="@dimen/ll_man_itme_icon_height"
+            android:layout_width="65dp"
+            android:layout_height="70dp"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
-            android:paddingTop="5dp"
+            android:paddingTop="10dp"
             android:paddingBottom="5dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:src="@drawable/phone"
             android:scaleType="fitXY"
-            />
+    />
 
     <TextView
             android:id="@+id/tv_main_item_name"
@@ -26,6 +27,7 @@
             android:layout_height="@dimen/tv_man_itme_appname_height"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="func_name"
-            />
+            android:textStyle="bold"
+    />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

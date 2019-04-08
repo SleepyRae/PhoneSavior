@@ -65,13 +65,15 @@
 
             <Button
                     android:id="@+id/OK"
-                    style="?android:textAppearanceSmall"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@drawable/btn_submit"
                     android:text="确认挑战"
                     android:textColor="@color/darkgreen"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+            />
 
         </LinearLayout>
     </ScrollView>
