@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.BitmapFactory;
+import android.os.Looper;
 import android.text.format.DateUtils;
 import android.widget.Toast;
 import com.example.inspiron.phonesavior.R;
@@ -26,7 +27,9 @@ public class NoticeMesg {
         switch (type){
             case "0":
                 s="友情提示";
+                Looper.prepare();
                 Toast.makeText(context.getApplicationContext(), label + "使用已超时!", Toast.LENGTH_SHORT).show();
+                Looper.loop();
                 break;
             case "1":
                 s="睡眠";

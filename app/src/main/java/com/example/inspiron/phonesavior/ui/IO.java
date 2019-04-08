@@ -1,10 +1,12 @@
 package com.example.inspiron.phonesavior.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import com.example.inspiron.phonesavior.R;
+import com.example.inspiron.phonesavior.Service.AppLimitService;
 
 import java.io.*;
 
@@ -77,6 +79,8 @@ public class IO extends AppCompatActivity implements View.OnClickListener {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                Intent punish = new Intent(IO.this, AppLimitService.class);
+                startService(punish);
                 finish();
                 break;
             default:
