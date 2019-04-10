@@ -19,8 +19,6 @@ public class SettingActivity extends AppCompatActivity implements OnClickListene
     private LinearLayout ll_set_exit;
     private TextView tv_set_facedetect;
     private TextView tv_common_title;
-    private boolean isOpenFaceDetect = false;
-    private Intent FaceDetect;
 
 
 
