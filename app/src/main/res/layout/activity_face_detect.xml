@@ -1,31 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.FaceDetectActivity">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/face_detect"
-            android:textColor="@color/darkgreen"
-            android:textSize="@dimen/app_textsize_big"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="187dp"/>
+    <LinearLayout
+            android:layout_marginTop="5dp"
+            style="@style/set_bg_layout" >
 
-    <Switch
-            android:id="@+id/s_v"
-            android:showText="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:switchMinWidth="20dp"
-            android:textOn="@string/on"
-            android:textOff="@string/off"
-            android:thumb="@drawable/thumb"
-            android:track="@drawable/track"
-            android:layout_centerInParent="true"/>
+        <LinearLayout
+                android:id="@+id/ll_set_facedetect"
+                style="@style/set_bg_top_layout">
+            <TextView
+                    android:id="@+id/tv_set_facedetect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1.0"
+                    android:text="@string/face_detect"
+                    android:textColor="#ff333333"
+                    android:textSize="25dp" />
 
-</RelativeLayout>
+        <Switch
+                android:id="@+id/s_v"
+                android:showText="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:switchMinWidth="15dp"
+                android:textOn="@string/on"
+                android:textOff="@string/off"
+                android:thumb="@drawable/thumb"
+                android:track="@drawable/track"
+                android:layout_centerInParent="true"/>
+
+        </LinearLayout>
+        <TextView
+                android:id="@+id/tv_set_fac_det_seg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="@string/set_fac_det_seg"
+                android:textSize="15dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>
