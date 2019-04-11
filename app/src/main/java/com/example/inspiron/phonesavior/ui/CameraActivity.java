@@ -38,6 +38,10 @@ public class CameraActivity extends Activity {
     private int num = 0;
     public static WeakReference<CameraActivity> weak = null;
     private boolean isTaking = false;
+    private int count = 0;
+    private boolean isFocusing = false;
+
+    //  private Camera.AutoFocusCallback myAutoFocusCallback  = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +51,7 @@ public class CameraActivity extends Activity {
         // 无title
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // 全屏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+     //   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //设置布局
         setContentView(R.layout.activity_camera);
@@ -66,13 +69,13 @@ public class CameraActivity extends Activity {
                 //initCamera();
              //   boolean result = false;
 
-                while(!isTaking) {
+                while(!isTaking && (count <= 10)) {
                     num++;
                     Log.d("Demo", "第"+ num +"次开始拍照" );
                     initCamera();
 
                     try {
-                        Thread.sleep(15 * 1000); //设置暂停的时间 15 秒
+                        Thread.sleep(20 * 1000); //设置暂停的时间 20 秒
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -87,6 +90,9 @@ public class CameraActivity extends Activity {
                     e.printStackTrace();
                 }
 
+                if(count > 10){
+                    Toast.makeText(CameraActivity.this, "检测到您持续用眼，请注意用眼", Toast.LENGTH_SHORT).show();
+                }
                 CameraActivity.this.finish();
             }
         }).start();
@@ -119,12 +125,25 @@ public class CameraActivity extends Activity {
             {
                 Log.d("Demo", "openCameraSuccess");
                 //进行对焦
-                autoFocus();
+                try {
+                    //因为开启摄像头需要时间，这里让线程睡两秒
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                while(isFocusing);
+                if(!isFocusing){
+                    autoFocus();
+                }
             }
             else {
                 Log.d("Demo", "openCameraFailed");
             }
-
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -141,11 +160,11 @@ public class CameraActivity extends Activity {
         }
 
         //自动对焦
-        myCamera.autoFocus(myAutoFocus);
+        myCamera.autoFocus(myAutoFocusCallback);
 
         try {
             //因为开启摄像头需要时间，这里让线程睡两秒
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -219,9 +238,22 @@ public class CameraActivity extends Activity {
     }
 
     //自动对焦回调函数(空实现)
-    private Camera.AutoFocusCallback myAutoFocus = new Camera.AutoFocusCallback() {
+    private Camera.AutoFocusCallback myAutoFocusCallback = new Camera.AutoFocusCallback() {
         @Override
         public void onAutoFocus(boolean success, Camera camera) {
+            // TODO Auto-generated method stub
+            isFocusing = true;
+            if(success )//success表示对焦成功
+            {
+                Log.i("myAutoFocusCallback", " success...");
+                //myCamera.setOneShotPreviewCallback(null);
+            }
+            else {
+                //未对焦成功
+                Log.i("myAutoFocusCallback", " failed...");
+                myCamera.autoFocus(myAutoFocusCallback);
+            }
+            isFocusing = false;
         }
     };
 
@@ -259,6 +291,9 @@ public class CameraActivity extends Activity {
             numOfFaces = mFaceDetector.findFaces(bitmap, mFace);
             Log.v("------------->",  "pic num:" + num + "  face num:"+numOfFaces );
             if(numOfFaces == 1){
+                if(mFace[0].eyesDistance() >= 100){
+                    count++;
+                }
                Log.d("pic num:" + num,  "  eyesDistance:"+ mFace[0].eyesDistance() +"  confidence:"+ mFace[0].confidence());
             }
 
@@ -282,7 +317,7 @@ public class CameraActivity extends Activity {
             bitmap = null;
 
             Log.d("Demo", "获取照片成功");
-            Toast.makeText(CameraActivity.this, "获取照片成功", Toast.LENGTH_SHORT).show();;
+            Toast.makeText(CameraActivity.this, "获取照片成功", Toast.LENGTH_SHORT).show();
           //  myCamera.stopPreview();
             //myCamera.release();
             myCamera.startPreview();
@@ -331,5 +366,6 @@ public class CameraActivity extends Activity {
             weak.get().finish();
         }
     }
+
 }
 
