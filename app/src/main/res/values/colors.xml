@@ -9,6 +9,7 @@
     <color name="quit_default_red">#F35336</color>
     <color name="quit_pressed_red">#C32136</color>
     <color name="app_theme_color">#87c5e8	</color>
+    <color name="color_bottom_layout_bg">#F2F2F2</color>
     <!-- 应用的主题色 -->
     <color name="white">#FFFFFF</color>
     <!-- 白色 -->
