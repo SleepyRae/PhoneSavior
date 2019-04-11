@@ -18,6 +18,8 @@
     <string name="app_set_check_update">检查更新</string>
     <string name="app_set_exit">退出应用</string>
     <string name="set_fac_det_seg">开启后，将在您的手机后台进行拍照及人脸检测，可能会消耗更多的电量。</string>
+    <string name="title_activity_manager">应用管理</string>
+    <string name="act_man_app">当前应用： </string>
 
     <!-- Strings related to Settings -->
 
