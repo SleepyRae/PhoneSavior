@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_app_statistics_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.AppStatisticsList">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="145px"
+            android:id="@+id/ActionBarList3"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true">
+
+        <Button
+                android:text="Pie"
+                android:layout_width="0dp"
+                android:layout_weight="1.0"
+                android:layout_height="73dp"
+                android:background="#00000000"
+                android:textColor="@color/darkseagreen"
+                android:id="@+id/PieButton3"/>
+
+        <Button
+                android:text="Bar"
+                android:layout_width="0dp"
+                android:layout_weight="1.0"
+                android:layout_height="73dp"
+                android:background="#00000000"
+                android:textColor="@color/darkseagreen"
+                android:id="@+id/BarButton3"/>
+
+        <Button
+                android:text="List"
+                android:layout_width="0dp"
+                android:layout_weight="1.0"
+                android:layout_height="73dp"
+                android:background="#00000000"
+                android:textColor="@color/darkseagreen"
+                android:id="@+id/ListButton3"/>
+
+    </LinearLayout>
+
+    <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/AppStatisticsList"
+            android:layout_below="@+id/buttonbarList3"
+            android:layout_above="@+id/ActionBarList3"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="145px"
+            android:orientation="horizontal"
+            android:id="@+id/buttonbarList3">
+
+        <Button
+                android:text="DAY"
+                android:layout_width="0dp"
+                android:layout_weight="1.0"
+                android:layout_height="73dp"
+                android:id="@+id/daybuttonlist3"
+                android:background="#00000000"
+                android:textColor="@color/darkseagreen"/>
+
+
+        <Button
+                android:text="WEEK"
+                android:layout_width="0dp"
+                android:layout_weight="1.0"
+                android:layout_height="73dp"
+                android:id="@+id/weekbuttonlist3"
+                android:background="#00000000"
+                android:textColor="@color/darkseagreen"/>
+
+        <Button
+                android:text="MONTH"
+                android:layout_width="0px"
+                android:layout_weight="1.0"
+                android:layout_height="73dp"
+                android:id="@+id/monthbuttonlist3"
+                android:background="#00000000"
+                android:textColor="@color/darkseagreen"/>
+
+        <Button
+                android:text="YEAR"
+                android:layout_width="0px"
+                android:layout_weight="1.0"
+                android:layout_height="73dp"
+                android:id="@+id/yearbuttonlist3"
+                android:background="#00000000"
+                android:textColor="@color/darkseagreen"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,36 +1,86 @@
 <resources>
     <string name="app_name">手机拯救者</string>
-    <string name="helpinfo">还没啥功能</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="app_version">Time Mirror</string>
-    <string name="unknown_app_version">版本号未知 </string>
+    <string name="action_settings">设置</string>
 
-    <string name="tv_appmanage_activity_title">应用程序信息</string>
-    <string name="tv_appmanage_activity_loading">正在加载请稍后</string>
-    <string name="pd_loading">正在加载数据请稍候</string>
-    <!-- 设置界面 -->
-    <string name="app_set_tv_title">应用程序设置</string>
-    <string name="app_set_tv_togger_floatview_open">开启浮窗</string>
-    <string name="app_set_tv_togger_floatview_close">关闭浮窗</string>
-    <string name="app_set_feedback">意见反馈</string>
-    <string name="app_set_product">产品信息</string>
-    <string name="app_set_about_author">关于作者</string>
-    <string name="app_set_clear_cache">清除数据</string>
-    <string name="app_set_check_update">检查更新</string>
-    <string name="app_set_exit">退出应用</string>
+    <string name="title_activity_help">帮助</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="helpinfo">啊 没有帮助</string>
+    <string name="on">on</string>
+    <string name="off">off</string>
+    <string name="face_detect">人脸检测</string>
+    <string name="title_activity_setting">设置</string>
+    <string name="app_list_title">应用使用情况</string>
 
-    <string name="app_help_tv_title">使用帮助</string>
+    <!-- Strings related to Settings -->
 
-    <string name="activity_help_description">
-      \n基本功能：应用管理及时间统计。应用管理提供了应用类别和使用频率使用时间等信息，时间统计主要包括最常使用的应用以及每天和每周打开应用的个数和所花费的时间\n\n
-    悬浮窗功能：自己最常使用的6个应用将会添加到悬浮窗中，分为小悬浮窗和大悬浮窗。小悬浮窗可以手动设置是否显示，大悬浮窗由小悬浮窗呼出\n\n
-小米华为手机注意事项：这两款手机由于添加了系统优化，所以需要在应用程序保护中将本应用添加为保护，否则会导致程序不能正常运行以及时间统计不准确\n\n
-其他功能：统计数据可以设置一键清除，默认统计数据除了每周数据会一周清除一次，每日数据会一天清除一次，其他数据默认是不会自动清除的。如果想要将之前的统计数据全部清除，可以在设置界面点击"清除数据"\n\n
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact based on your message
+        history
     </string>
 
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
 
-    <!--  更新apk的服务器地址  -->
-    <!--  原项目是把这条放在config.xml里的-->
-    <string name="updateurl">http://10.0.2.2/QuickAccessServer/updateinfo.xml</string>
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value"/>
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
 </resources>

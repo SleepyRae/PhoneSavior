@@ -1,36 +1,50 @@
 package com.example.inspiron.phonesavior.ui;
 
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.PowerManager;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import android.widget.Toast;
+import com.example.inspiron.phonesavior.Chart.DemoBase;
 import com.example.inspiron.phonesavior.R;
+import com.example.inspiron.phonesavior.Service.AppLimitService;
+import com.example.inspiron.phonesavior.Statistics.AppInformation;
+import com.example.inspiron.phonesavior.Statistics.StatisticsInfo;
 import com.example.inspiron.phonesavior.adapter.MainUIAdapter;
-import com.example.inspiron.phonesavior.utils.LogUtil;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+import java.io.*;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+
+public class MainActivity extends DemoBase implements AdapterView.OnItemClickListener {
 
     private static final String TAG = "MainActivity";
     private GridView gv;
     private MainUIAdapter adapter;
     private Intent intent;
 
+/*    private ArrayList<AppInformation> ShowList;
+//    long YLength;
+//    int cellHeight;*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_main);
 
         // 设置没有标题
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        // 设置全屏，全屏比较丑，一般很少用
-        // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-        // WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        setContentView(R.layout.activity_main);
         ActivityManager.getInstance().addActivity(this);
 
         intent = new Intent();
@@ -40,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         gv.setAdapter(adapter);
 
         gv.setOnItemClickListener(this);
+
     }
 
     /**
@@ -53,23 +68,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 0: // 使用帮助界面
                 intent.setClass(this, HelpActivity.class);
                 startActivity(intent);
-                LogUtil.i(TAG, "进入使用帮助界面");
                 break;
-            case 1: // 应用设置界面
-                intent.setClass(this, SettingActivity.class);
-                startActivity(intent);
-                LogUtil.i(TAG, "进入应用设置界面");
+            case 1: // 应用管理界面
+                Intent intent1 = new Intent(MainActivity.this, AppManageActivity.class);
+                startActivity(intent1);
                 break;
-            case 2: // 应用管理界面
-                intent.setClass(this, AppManageActivity.class);
-                startActivity(intent);
-                LogUtil.i(TAG, "进入应用管理界面");
+            case 2: // 软件设置界面
+                Intent intent2 = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent2);
                 break;
             case 3: // 应用信息查看界面
-                intent.setClass(this, ViewAppStaticsActivity.class);
-                startActivity(intent);
-                LogUtil.i(TAG, "进入应用信息查看界面");
+                Intent intent3 = new Intent(MainActivity.this, AppStaticsActivity.class);
+                startActivity(intent3);
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+
+        Log.d("MainActivity", "onResume");
+        super.onResume();
     }
 }

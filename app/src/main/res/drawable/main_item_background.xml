@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 图形的边框 -->
+    <stroke
+        android:width="8dp"
+        android:color="#EAEAEA" />
+    <!-- 边框弧度,分别设置了4个角的圆角弧度 -->
+    <corners
+        android:bottomLeftRadius="10.0dip"
+        android:bottomRightRadius="10.0dip"
+        android:topLeftRadius="10.0dip"
+        android:topRightRadius="10.0dip" />
+    <!-- 背景色 -->
+    <solid android:color="#ffffff" />
+    <!-- 渐变色gradient -->
+
+</shape>

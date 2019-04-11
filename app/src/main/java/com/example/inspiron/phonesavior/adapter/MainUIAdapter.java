@@ -7,15 +7,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.inspiron.phonesavior.R;
 
 public class MainUIAdapter extends BaseAdapter {
 
     private Context context;
     private LayoutInflater inflater;
-    private static String names[] = { "使用帮助", "应用设置", "管理应用", "统计信息" };
-    private static int icons[] = { R.drawable.phone, R.drawable.phone, R.drawable.phone, R.drawable.phone };
+    private static String names[] = { "使用帮助", "应用管理", "软件设置", "统计信息" };
+    private static int icons[] = { R.drawable.search, R.drawable.manage, R.drawable.settings, R.drawable.statistics };
 
     public MainUIAdapter(Context c) {
         this.context = c;

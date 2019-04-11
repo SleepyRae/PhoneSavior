@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.example.inspiron.phonesavior">
 
-    <!-- 获取应用程序信息的权限 -->
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <!-- 网络访问权限,用于从服务器获取更新信息 -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-sdk
+            android:minSdkVersion="21"
+            android:targetSdkVersion="28">
+    </uses-sdk>
 
+    <!-- 调用相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <!-- 读写SD卡权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission
+            android:name="android.permission.PACKAGE_USAGE_STATS"
+            tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.REBOOT"/>
+    <uses-permission android:name="android.permission.SHUTDOWN"/>
 
     <application
             android:allowBackup="true"
@@ -14,52 +34,61 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/Theme.AppCompat.Dialog">
-
-        <!-- 系统主界面 -->
-        <activity android:name=".ui.MainActivity">
+            android:theme="@style/AppTheme">
+        <activity
+                android:name=".ui.SplashActivity"
+                android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <!-- 帮助界面 -->
-        <activity android:name=".ui.HelpActivity">
+        <activity android:name=".ui.MainActivity">
         </activity>
-        <activity android:name=".ui.HelpPager" >
+        <activity android:name=".ui.AppStaticsActivity">
+        </activity>
+        <activity android:name=".ui.AppStatisticsList">
+        </activity>
+        <activity android:name=".ui.BarChartActivity">
+        </activity>
+        <activity android:name=".ui.PiePolylineChartActivity">
+        </activity>
+        <activity
+                android:name=".ui.HelpActivity"
+                android:label="@string/title_activity_help">
+        </activity>
+        <activity android:name=".ui.FaceDetectActivity">
+        </activity>
+        <activity
+                android:name=".ui.CameraActivity"
+                android:theme="@android:style/Theme.Translucent">
+        </activity>
+        <activity android:name=".ui.AppManageActivity">
+        </activity>
+        <activity android:name=".ui.IO">
+        </activity>
+        <activity android:name=".ui.SettingActivity">
         </activity>
 
-        <!-- splash界面 -->
+        <receiver
+                android:name=".ui.AdminReceiver"
+                android:label="@string/app_name"
+                android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                    android:name="android.app.device_admin"
+                    android:resource="@xml/deviceinfo"/>
 
-        <!-- 设置界面 -->
-        <activity android:name=".ui.SettingActivity" >
-        </activity>
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+            </intent-filter>
+        </receiver>
 
-        <!-- 应用管理界面 -->
-        <activity android:name=".ui.AppManageActivity" >
-        </activity>
-
-        <!-- 查看应用使用情况界面 -->
-        <activity android:name=".ui.ViewAppStaticsActivity" >
-        </activity>
-
-        <!-- 关于作者界面 -->
-        <activity android:name=".ui.AboutAuthorActivity" >
-        </activity>
-        <!-- 本App信息界面，暂时显示版本号，其他信息后续 -->
-        <activity android:name=".ui.AboutAppActivity" >
-        </activity>
-
-        <!-- 监测最顶端应用Activity栈的服务 -->
-        <service android:name=".service.WatchdogService" >
+        <service
+                android:name=".Service.AppLimitService"
+                android:enabled="true"
+                android:exported="true">
         </service>
-        <!-- 维护悬浮窗的显示和关闭的服务 -->
-        <service android:name=".service.FloatViewService" >
-        </service>
-
-
     </application>
 
 </manifest>
