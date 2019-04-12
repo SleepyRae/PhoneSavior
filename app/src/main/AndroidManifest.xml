@@ -22,16 +22,13 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.DEVICE_POWER"/>
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
-    <uses-permission android:name="android.permission.REBOOT"/>
-    <uses-permission android:name="android.permission.SHUTDOWN"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
             android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/iconsmartphone"
             android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
@@ -97,6 +94,9 @@
                 android:enabled="true"
                 android:exported="true">
         </service>
+
+        <activity android:name=".ui.AppPrepareActivity">
+        </activity>
     </application>
 
 </manifest>

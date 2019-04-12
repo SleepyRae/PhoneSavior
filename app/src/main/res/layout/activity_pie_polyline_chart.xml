@@ -24,7 +24,7 @@
                 android:layout_height="73dp"
                 android:id="@+id/daybuttonchart1"
                 android:background="#00000000"
-                android:textColor="@color/darkseagreen"/>
+                android:textColor="@color/app_theme_color"/>
 
 
         <Button
@@ -34,7 +34,7 @@
                 android:layout_height="73dp"
                 android:id="@+id/weekbuttonchart1"
                 android:background="#00000000"
-                android:textColor="@color/darkseagreen"/>
+                android:textColor="@color/app_theme_color"/>
 
         <Button
                 android:text="MONTH"
@@ -43,7 +43,7 @@
                 android:layout_height="73dp"
                 android:id="@+id/monthbuttonchart1"
                 android:background="#00000000"
-                android:textColor="@color/darkseagreen"/>
+                android:textColor="@color/app_theme_color"/>
 
         <Button
                 android:text="YEAR"
@@ -52,7 +52,7 @@
                 android:layout_height="73dp"
                 android:id="@+id/yearbuttonchart1"
                 android:background="#00000000"
-                android:textColor="@color/darkseagreen"/>
+                android:textColor="@color/app_theme_color"/>
     </LinearLayout>
 
     <TextView
@@ -78,7 +78,7 @@
                 android:layout_weight="1.0"
                 android:layout_height="73dp"
                 android:background="#00000000"
-                android:textColor="@color/darkseagreen"
+                android:textColor="@color/app_theme_color"
                 android:id="@+id/PieButton1"/>
 
         <Button
@@ -87,7 +87,7 @@
                 android:layout_weight="1.0"
                 android:layout_height="73dp"
                 android:background="#00000000"
-                android:textColor="@color/darkseagreen"
+                android:textColor="@color/app_theme_color"
                 android:id="@+id/BarButton1"/>
 
         <Button
@@ -96,7 +96,7 @@
                 android:layout_weight="1.0"
                 android:layout_height="73dp"
                 android:background="#00000000"
-                android:textColor="@color/darkseagreen"
+                android:textColor="@color/app_theme_color"
                 android:id="@+id/ListButton1"/>
 
     </LinearLayout>

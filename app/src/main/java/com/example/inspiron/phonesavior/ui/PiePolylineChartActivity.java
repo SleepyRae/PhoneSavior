@@ -126,26 +126,26 @@ public class PiePolylineChartActivity extends DemoBase implements OnChartValueSe
 
         switch (style) {
             case StatisticsInfo.DAY:
-                buttonday.setTextColor(Color.GREEN);
+                buttonday.setTextColor(Color.parseColor("#4682B4"));
                 break;
             case StatisticsInfo.MONTH:
-                buttonmonth.setTextColor(Color.GREEN);
+                buttonmonth.setTextColor(Color.parseColor("#4682B4"));
                 break;
             case StatisticsInfo.WEEK:
-                buttonweek.setTextColor(Color.GREEN);
+                buttonweek.setTextColor(Color.parseColor("#4682B4"));
                 break;
             case StatisticsInfo.YEAR:
-                buttonyear.setTextColor(Color.GREEN);
+                buttonyear.setTextColor(Color.parseColor("#4682B4"));
                 break;
         }
 
         String classname = this.getClass().getName();
         if (classname.contains("BarChartActivity")) {
-            buttonbar.setTextColor(Color.YELLOW);
+            buttonbar.setTextColor(Color.parseColor("#228B22"));
         } else if (classname.contains("AppStatisticsList")) {
-            buttonlist.setTextColor(Color.YELLOW);
+            buttonlist.setTextColor(Color.parseColor("#228B22"));
         } else if (classname.contains("PiePolylineChartActivity")) {
-            buttonpie.setTextColor(Color.YELLOW);
+            buttonpie.setTextColor(Color.parseColor("#228B22"));
         }
     }
 
