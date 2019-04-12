@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.hardware.Camera;
+import android.media.FaceDetector;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
@@ -211,6 +212,21 @@ public class CameraActivity extends Activity {
             Matrix matrix = new Matrix();
             matrix.preRotate(270);
             bitmap = Bitmap.createBitmap(bitmap ,0,0, bitmap .getWidth(), bitmap .getHeight(),matrix,true);
+
+            // TODO: 2019/4/10 增加人脸
+           // BitmapFactory.Options bitmapOption = new BitmapFactory.Options();//图片的参数(这个参数要有，不然找不到人脸)
+            //bitmapOption.inPreferredConfig = Bitmap.Config.RGB_565;
+
+            //FaceDetecor只能读取RGB 565格式的Bitmap，将上面得到的Bitmap进行一次格式转换
+            Bitmap myBitmap = bitmap.copy(Bitmap.Config.RGB_565, true);
+
+            //假设最多有5张脸
+            int numOfFaces = 5;
+            FaceDetector mFaceDetector = new FaceDetector(myBitmap.getWidth(),myBitmap.getHeight(),numOfFaces);
+            FaceDetector.Face[] mFace = new FaceDetector.Face[numOfFaces];
+            //获取实际上有多少张脸
+            numOfFaces = mFaceDetector.findFaces(myBitmap, mFace);
+            Log.v("------------->", ""+numOfFaces);
 
             //创建并保存图片文件
             File pictureFile = new File(getDir(), "camera"+num+".jpg");

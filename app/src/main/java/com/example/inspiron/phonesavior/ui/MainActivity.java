@@ -74,7 +74,7 @@ public class MainActivity extends DemoBase implements AdapterView.OnItemClickLis
                 startActivity(intent1);
                 break;
             case 2: // 软件设置界面
-                Intent intent2 = new Intent(MainActivity.this, SettingActivity.class);
+                Intent intent2 = new Intent(MainActivity.this, FaceDetectActivity.class);
                 startActivity(intent2);
                 break;
             case 3: // 应用信息查看界面
