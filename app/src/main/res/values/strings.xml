@@ -20,6 +20,16 @@
     <string name="set_fac_det_seg">开启后，请耐心在该界面等待2-3秒待相机打开。打开后将在您的手机后台进行拍照及人脸检测，可能会消耗更多的电量。</string>
     <string name="title_activity_manager">应用管理</string>
     <string name="act_man_app">当前应用： </string>
+    <string name="basic_function">应用管理及时间统计\n应用管理提供了管理应用使用时限和设置限制方式的功能，时间统计包括最常使用的应用以及每天和每周及每月使用各个应用的时间。</string>
+    <string name="question1">Q1：手机拯救者支持什么设备？</string>
+    <string name="answer1">Android5.0以上版本的Android手机</string>
+    <string name="question2">Q2：为什么看不到统计信息？</string>
+    <string name="answer2">查看是否开启相应权限</string>
+    <string name="question3">Q3：为什么打开人脸检测后闪退？</string>
+    <string name="answer3">查看是否开启相应权限\n由于设备安全限制，部分机型可能出现后台拍照闪退\nTips：当正在使用相机时会导致人脸检测失败</string>
+    <string name="question4">Q4：打开检测或设置应用限制后仍未收到提示？</string>
+    <string name="answer4">可能是后台清理掉啦，请运行时不要清掉手机拯救者</string>
+
 
     <!-- Strings related to Settings -->
 
