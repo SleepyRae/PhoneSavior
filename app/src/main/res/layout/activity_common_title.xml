@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_theme_color"
+    android:orientation="vertical" >
+
+    <TextView
+            android:id="@+id/tv_common_title"
+            android:layout_width="fill_parent"
+            android:layout_height="65dp"
+            android:gravity="center"
+            android:text="@string/title_activity_setting"
+            android:textColor="@color/white"
+            android:textSize="28dp"/>
+
+</LinearLayout>

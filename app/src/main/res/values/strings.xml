@@ -9,8 +9,15 @@
     <string name="on">on</string>
     <string name="off">off</string>
     <string name="face_detect">人脸检测</string>
-    <string name="title_activity_setting">设置</string>
+    <string name="title_activity_setting">应用设置</string>
     <string name="app_list_title">应用使用情况</string>
+    <string name="app_set_face_det_open">开启人脸检测</string>
+    <string name="app_set_about_author">关于我们</string>
+    <string name="app_set_about_app">关于软件</string>
+    <string name="app_set_clear_cache">清除数据</string>
+    <string name="app_set_check_update">检查更新</string>
+    <string name="app_set_exit">退出应用</string>
+    <string name="set_fac_det_seg">开启后，将在您的手机后台进行拍照及人脸检测，可能会消耗更多的电量。</string>
 
     <!-- Strings related to Settings -->
 
