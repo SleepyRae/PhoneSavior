@@ -1,5 +1,7 @@
 package com.example.inspiron.phonesavior.ui;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +12,8 @@ import android.widget.Toast;
 import com.example.inspiron.phonesavior.R;
 import com.example.inspiron.phonesavior.Service.AppLimitService;
 import com.example.inspiron.phonesavior.Service.CameraService;
+
+import java.util.ArrayList;
 
 public class FaceDetectActivity extends AppCompatActivity {
     private boolean ServiceIsOn = false;
@@ -24,6 +28,13 @@ public class FaceDetectActivity extends AppCompatActivity {
         aSwitch.setChecked(false);
 
         aSwitch.setSwitchTextAppearance(FaceDetectActivity.this,R.style.s_false);
+
+        ServiceIsOn = isRunning("com.example.inspiron.phonesavior.Service.CameraService");
+        if(ServiceIsOn){
+            aSwitch.setChecked(true);
+        }else{
+            aSwitch.setChecked(false);
+        }
 
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -49,6 +60,19 @@ public class FaceDetectActivity extends AppCompatActivity {
         });
     }
 
-
+    //判断service是否运行
+    public boolean isRunning(String name){
+        android.app.ActivityManager myManager = (android.app.ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        //获取所有正在运行的service
+        ArrayList<android.app.ActivityManager.RunningServiceInfo> runningService = (ArrayList<ActivityManager.RunningServiceInfo>) myManager
+                .getRunningServices(30);
+        for (int i = 0; i < runningService.size(); i++) {
+            if (runningService.get(i).service.getClassName().toString()
+                    .equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
