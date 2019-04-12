@@ -93,6 +93,11 @@
                 android:enabled="true"
                 android:exported="true">
         </service>
+        <service
+                android:name=".Service.CameraService"
+                android:enabled="true"
+                android:exported="true">
+        </service>
     </application>
 
 </manifest>

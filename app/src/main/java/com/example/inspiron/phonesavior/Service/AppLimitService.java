@@ -254,6 +254,7 @@ public class AppLimitService extends Service {
         if(path.exists()) {
             BufferedReader in = new BufferedReader(new FileReader(path));
             String line = in.readLine();
+            Log.d("AppLimitService", line);
             while (line != null) {
                 int n1 = line.indexOf("#");
                 int n2 = line.indexOf("#",n1 + 1);
