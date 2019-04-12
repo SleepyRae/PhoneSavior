@@ -15,10 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.*;
 import android.widget.Toast;
 import com.example.inspiron.phonesavior.R;
 
@@ -367,5 +364,13 @@ public class CameraActivity extends Activity {
         }
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            moveTaskToBack(true);
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
 

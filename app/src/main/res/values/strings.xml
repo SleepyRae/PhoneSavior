@@ -17,7 +17,7 @@
     <string name="app_set_clear_cache">清除数据</string>
     <string name="app_set_check_update">检查更新</string>
     <string name="app_set_exit">退出应用</string>
-    <string name="set_fac_det_seg">开启后，请耐心在该界面等待2-3秒待相机打开。打开后将在您的手机后台进行拍照及人脸检测，可能会消耗更多的电量。</string>
+    <string name="set_fac_det_seg">开启后，请长按返回键退回到桌面即开启摄像头。打开后将在您的手机后台进行拍照及人脸检测，检测到累计用眼10分钟则发出提示，可能会消耗更多的电量。</string>
     <string name="title_activity_manager">应用管理</string>
     <string name="act_man_app">当前应用： </string>
     <string name="basic_function">应用管理及时间统计\n应用管理提供了管理应用使用时限和设置限制方式的功能，时间统计包括最常使用的应用以及每天和每周及每月使用各个应用的时间。</string>
