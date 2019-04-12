@@ -17,7 +17,6 @@ import android.widget.GridView;
 import android.widget.Toast;
 import com.example.inspiron.phonesavior.Chart.DemoBase;
 import com.example.inspiron.phonesavior.R;
-import com.example.inspiron.phonesavior.Service.AppLimitService;
 import com.example.inspiron.phonesavior.Statistics.AppInformation;
 import com.example.inspiron.phonesavior.Statistics.StatisticsInfo;
 import com.example.inspiron.phonesavior.adapter.MainUIAdapter;

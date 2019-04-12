@@ -23,7 +23,8 @@ import java.util.Calendar;
 public class AppLimitService extends Service {
 
     private ArrayList<AppInformation> ShowList;
-
+    private  long oriTime = 0;
+    private  int i=1;
 
     public AppLimitService() {
     }
@@ -41,12 +42,14 @@ public class AppLimitService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d("AppLimitService", "onStartCommand");
         new Thread(new Runnable() {
             @Override
             public void run() {
-                int i=0;
+
+                //int i = 0;
                 while(isRunning("com.example.inspiron.phonesavior.Service.AppLimitService")){//如果AppLimitService正在运行
-                    Log.d("AppLimitService", "第" + (++i) +"次");
+                    Log.d("AppLimitService", "第" + i +"次");
                     try {
                         getSetList();
                     } catch (IOException e) {
@@ -102,17 +105,24 @@ public class AppLimitService extends Service {
                 appInformation.calculateRunningTime();
 
                 if (FoundAppSet(appInformation.getLabel())) {
+                    if(i==1){
+                       oriTime = appInformation.getUsedTimebyDay() / 1000;
+                    }
+                    i++;
                     long time = appInformation.getUsedTimebyDay() / 1000;
+                    time = time - oriTime;
 
-                    Log.d("AppLimitService", "time : " + time );
+                    Log.d("AppLimitService", "time : " + time + "  oriTime: " + oriTime);
 
                     if (time > Integer.parseInt(appSet.getTime())) {
                         if (appSet.getType() == AppSet.TIP) {
+                            i = 0;
                             NoticeMesg noticeMesg = new NoticeMesg(AppLimitService.this, appInformation.getLabel());
                             noticeMesg.Toast(String.valueOf(appSet.getType()));
                             noticeMesg.Time_Notice(appSet.getTime(), String.valueOf(time), String.valueOf(appSet.getType()));
 
                         } else if (appSet.getType() == AppSet.SLEEP) {
+                            i = 0;
                             Toast.makeText(this.getApplicationContext(), "应用" + appInformation.getLabel() + "超时，手机将于5秒钟后睡眠", Toast.LENGTH_SHORT).show();
                             NoticeMesg noticeMesg = new NoticeMesg(AppLimitService.this, appInformation.getLabel());
                             noticeMesg.Time_Notice(appSet.getTime(), String.valueOf(time), String.valueOf(appSet.getType()));
@@ -136,6 +146,7 @@ public class AppLimitService extends Service {
                                 }
                             }, 5000);
                         } else if (appSet.getType() == AppSet.REBOOT) {
+                            i = 0;
                             Toast.makeText(this.getApplicationContext(), "应用" + appInformation.getLabel() + "超时，手机将于5秒钟后重启", Toast.LENGTH_SHORT).show();
                             NoticeMesg noticeMesg = new NoticeMesg(AppLimitService.this, appInformation.getLabel());
                             noticeMesg.Time_Notice(appSet.getTime(), String.valueOf(time), String.valueOf(appSet.getType()));
@@ -160,6 +171,7 @@ public class AppLimitService extends Service {
                             }, 5000);
 
                         } else if (appSet.getType() == AppSet.SHUTDOWN) {
+                            i = 0;
                             Toast.makeText(this.getApplicationContext(), "应用" + appInformation.getLabel() + "超时，手机将于5秒钟后关机", Toast.LENGTH_SHORT).show();
                             NoticeMesg noticeMesg = new NoticeMesg(AppLimitService.this, appInformation.getLabel());
                             noticeMesg.Time_Notice(appSet.getTime(), String.valueOf(time), String.valueOf(appSet.getType()));
