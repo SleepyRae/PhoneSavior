@@ -114,15 +114,15 @@ public class AppLimitService extends Service {
 
                     Log.d("AppLimitService", "time : " + time + "  oriTime: " + oriTime);
 
-                    if (time > Integer.parseInt(appSet.getTime())) {
+                    if (time >= Integer.parseInt(appSet.getTime())-1) {
                         if (appSet.getType() == AppSet.TIP) {
-                            i = 0;
+                            i = 1;
                             NoticeMesg noticeMesg = new NoticeMesg(AppLimitService.this, appInformation.getLabel());
                             noticeMesg.Toast(String.valueOf(appSet.getType()));
                             noticeMesg.Time_Notice(appSet.getTime(), String.valueOf(time), String.valueOf(appSet.getType()));
 
                         } else if (appSet.getType() == AppSet.SLEEP) {
-                            i = 0;
+                            i = 1;
                             Toast.makeText(this.getApplicationContext(), "应用" + appInformation.getLabel() + "超时，手机将于5秒钟后睡眠", Toast.LENGTH_SHORT).show();
                             NoticeMesg noticeMesg = new NoticeMesg(AppLimitService.this, appInformation.getLabel());
                             noticeMesg.Time_Notice(appSet.getTime(), String.valueOf(time), String.valueOf(appSet.getType()));
@@ -146,7 +146,7 @@ public class AppLimitService extends Service {
                                 }
                             }, 5000);
                         } else if (appSet.getType() == AppSet.REBOOT) {
-                            i = 0;
+                            i = 1;
                             Toast.makeText(this.getApplicationContext(), "应用" + appInformation.getLabel() + "超时，手机将于5秒钟后重启", Toast.LENGTH_SHORT).show();
                             NoticeMesg noticeMesg = new NoticeMesg(AppLimitService.this, appInformation.getLabel());
                             noticeMesg.Time_Notice(appSet.getTime(), String.valueOf(time), String.valueOf(appSet.getType()));
